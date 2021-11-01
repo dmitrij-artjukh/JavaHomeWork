@@ -55,11 +55,6 @@ public class Library {
         for (int x = 0; x < 3; x++) {
             reader1.returnBook(books[x].getTitle(), books[x].getAuthor(), books[x].getYear());
 
-            // Reader reader1= new Reader("Петров",0, "физмат","11/10/2011","08008080");
-            //   Book [] books = new Book[3];
-            //    books[0]=new Book ("Приключения ","Иванов И. И.",2000);
-            //   books[1]=new Book ("Словарь","Сидоров А. В ",1980 );
-            //  books[2]=new Book("Энциклопедия ","Гусев К. В.",2010);
 
         }
 

@@ -49,9 +49,6 @@ public class Reader {
         this.phone = phone;
     }
 
-   // public Reader(String fio, Integer id, String faculty, String date, String phone) {
-
-    //}
 
     public void takeBook(Integer number)
     {
