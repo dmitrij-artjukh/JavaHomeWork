@@ -3,6 +3,7 @@ package com.pb.artjukh.hm2;
 import java.util.Scanner;
 
 public class Interval {
+    
     public static void main(String[] args) {
         int x;
         Scanner scan = new Scanner(System.in);
