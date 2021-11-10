@@ -57,6 +57,6 @@ System.out.println("мурчит");
 
     @Override
     public void sleep() {
-       System.out.println(name+"спит");
+       System.out.println(name+"  спит");
     }
 }

@@ -34,7 +34,7 @@ public class Animal {
     }
 
     public void sleep (){
-        System.out.println("спит");
+        System.out.println("может спит");
     }
 
     public void eat ()

@@ -18,7 +18,7 @@ public class VetClinic {
          horse.setFood("сено");
 
         Animal[] animals= new Animal[] {cat,dog,horse};
-
+        cat.sleep();
         Class vetClazz1 = Class.forName("com.pb.artjukh.hw6new.Veterinarian");
         Constructor const1 = vetClazz1.getConstructor();
         Object obj = const1.newInstance();
