@@ -6,7 +6,7 @@ public  class Tie extends Clothes implements ManClothes {
         super(size, price, color);
     }
     public String toString() {
-        return "Галстук:{" +
+        return "Галстук:" +
                 "размер=" + size+"/"+size.getEuroSize()+", " +size.getDescription()+
                 ", цена=" + price +"$"+
                 ", цвет='" + color ;
