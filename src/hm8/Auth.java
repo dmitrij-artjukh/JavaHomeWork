@@ -39,20 +39,20 @@ public class Auth {
         boolean str2 = password.matches("^[a-zA-Z_]+$");
         if (q > 5 && str == true && q < 20) {
              loginOk=login;
-              System.out.println("login ok"+loginOk);}
+              System.out.println("login ok");}
               else throw new WrongLoginException();
 
        if (w > 5 && password.equals(confimPassword) && str2 == true) {
            passOk=password;
-           System.out.println("password ok "+passOk);
+           System.out.println("password ok ");
 
        } else  throw new WrongPasswordException();
 
     }
     public void signIn(String login, String password) throws WrongLoginException{
-       System.out.println(password.toString());
+
         if (password.equals(passOk)) System.out.println("Регистрация выполнена успешно.");
-       else throw new WrongLoginException("wewew");
+       else throw new WrongLoginException("mesg");
     }
 }
 
