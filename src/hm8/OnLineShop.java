@@ -3,7 +3,7 @@ package hm8;
 import java.util.Scanner;
 
 public class OnLineShop {
-    public static void main(String[] args) {
+    public static void main(String[] args)  {
         String login;
         String password;
         String confimPassword;
@@ -12,19 +12,38 @@ public class OnLineShop {
 
         System.out.println("Для доступа сначала зарегистрируйтесь");
         System.out.print("Введите логин:");
-        login=(input.nextLine());
+        login = (input.nextLine());
         System.out.print("Введите пароль:");
-        password=(input.nextLine());
+        password = (input.nextLine());
         System.out.print("Введите пароль повторно:");
-        confimPassword=(input.nextLine());
+        confimPassword = (input.nextLine());
 
-        auth.signUp(login,password,confimPassword);
+        try {
+            auth.signUp(login,
+                    password,
+                    confimPassword);
 
-        //System.out.println();
-        //System.out.println("Войдите в систему.");
-        //System.out.print("Введите логин:");
-        //login1 = input.nextLine();
-        //System.out.print("Введите пароль:");
-        //password1=input.nextLine();
+        } catch (WrongLoginException e1) {
+            e1.getMessage();
+        } catch (WrongPasswordException e2) {
+            e2.getMessage();
         }
+
+        System.out.println();
+        System.out.println("Войдите в систему.");
+        System.out.print("Введите логин:");
+        login = input.nextLine();
+        System.out.print("Введите пароль:");
+        password = input.nextLine();
+
+   try { auth.signIn(login,
+            password);
+    }
+catch (WrongLoginException e3)
+    {
+
+        e3.getMessage();
+    }
+
+    }
 }

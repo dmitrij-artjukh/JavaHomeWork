@@ -5,9 +5,9 @@ import java.util.Scanner;
 public class Auth {
     private String login;
     private String password;
-   private  String confimPassword;
-   private String myloginl;
-   private  String mypassword;
+    private String confimPassword;
+    private String loginOk;
+    private String passOk;
     public String getLogin() {
         return login;
     }
@@ -32,29 +32,32 @@ public class Auth {
         this.confimPassword = confimPassword;
     }
 
-    public void signUp (String login, String password,String confimPassword)
-    {
-         int q = login.length() ;
+    public void signUp(String login, String password, String confimPassword) throws WrongLoginException,WrongPasswordException {
+        int q = login.length();
         int w = password.length();
-         boolean str= login.matches("^[a-zA-Z0-9]+$");
-        boolean str2= password.matches("^[a-zA-Z_]+$");
+        boolean str = login.matches("^[a-zA-Z0-9]+$");
+        boolean str2 = password.matches("^[a-zA-Z_]+$");
+        if (q > 5 && str == true && q < 20) {
+             loginOk=login;
+              System.out.println("login ok"+loginOk);}
+              else throw new WrongLoginException();
 
-        if (q > 5  && str == true && q <20) {
-            myloginl=login;
-            System.out.println("ok"+myloginl);
-        } else System.out.println("исключение");
+       if (w > 5 && password.equals(confimPassword) && str2 == true) {
+           passOk=password;
+           System.out.println("password ok "+passOk);
 
-
-    if (w > 5 && password.equals(confimPassword) && str2 == true) {
-        mypassword=password;
-
-        System.out.println("ok "+mypassword);
-    } else System.out.println("исключение");
-}
-
-    public void signIn (String login, String password)
-    {
+       } else  throw new WrongPasswordException();
 
     }
-
+    public void signIn(String login, String password) throws WrongLoginException{
+       System.out.println(password.toString());
+        if (password.equals(passOk)) System.out.println("Регистрация выполнена успешно.");
+       else throw new WrongLoginException("wewew");
+    }
 }
+
+
+
+
+
+
