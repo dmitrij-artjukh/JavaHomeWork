@@ -1,4 +1,4 @@
-package hm8;
+package com.pb.artjukh.hm8;
 
 public class WrongLoginException extends Exception{
     public WrongLoginException(String message) {

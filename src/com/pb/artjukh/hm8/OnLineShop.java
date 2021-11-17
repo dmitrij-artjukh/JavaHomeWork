@@ -1,4 +1,4 @@
-package hm8;
+package com.pb.artjukh.hm8;
 
 import java.util.Scanner;
 

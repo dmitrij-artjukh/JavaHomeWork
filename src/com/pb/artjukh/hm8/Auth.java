@@ -1,6 +1,4 @@
-package hm8;
-
-import java.util.Scanner;
+package com.pb.artjukh.hm8;
 
 public class Auth {
     private String login;
