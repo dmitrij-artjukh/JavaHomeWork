@@ -36,7 +36,7 @@ public class Auth {
         int q = login.length();
         int w = password.length();
         boolean str = login.matches("^[a-zA-Z0-9]+$");
-        boolean str2 = password.matches("^[a-zA-Z_]+$");
+        boolean str2 = password.matches("^[a-zA-Z0-9_]+$");
         if (q > 5 && str == true && q < 20) {
              loginOk=login;
               System.out.println("login ok");}
