@@ -13,8 +13,6 @@ public class FileNumbers {
 
     public static void createNumbersFile() throws IOException {
 
-        //Path testFile1 = Files.createFile(Paths.get("numbers.txt"));
-        //System.out.println(Files.exists(Paths.get("numbers.txt")));
         Path path = Paths.get("numbers.txt");
 
         Random random = new Random();
@@ -25,38 +23,32 @@ public class FileNumbers {
                     writer.write(line + " ");
                 }
                 writer.newLine();
+                writer.flush();
             }
         }
+
     }
 
     public static void createOddNumbersFile() throws IOException {
-//        BufferedReader in = new BufferedReader(new FileReader("numbers.txt"));
-//        String s = in.readLine();
-//        String[] strScores = s.split(" ");
-////        int[] score = new int[strScores.length];
-//        for (int j = 0; j < strScores.length; j++) {
-//            score[j] = Integer.parseInt(strScores[j]);
-//        }
-        try (Scanner in = new Scanner(new File("numbers.txt")); // "try с ресурсами"
-             PrintWriter out = new PrintWriter(new FileWriter("out_file.txt"));) {
-            System.out.println("Вывод, с учетом замены целых четных чисел на '0':");
+        try (Scanner in = new Scanner(new File("numbers.txt"));
+             PrintWriter out = new PrintWriter(new FileWriter("odd-numbers.txt"));)
+
+        {
             while (in.hasNextLine()) {
-                Scanner line = new Scanner(in.nextLine()); // Одна строка файла
-                while (line.hasNextInt()) {             // Разберем ее на числа
-                    int data = line.nextInt();          // Очередное число
-                    if (data % 2 == 0) {                // Если чётное
-                        System.out.format("%d -> 0, ", data); // Чтоб было видно, что делается
-                        data = 0;                       // Заменим его нулём
-                    } else
-                        System.out.print(data + ", ");  // Чтоб было видно, что делается
-                    out.print(data + ", ");
+                Scanner line = new Scanner(in.nextLine());
+                while (line.hasNextInt()) {
+                    int data = line.nextInt();
+                    if (data % 2 == 0) data = 0;
+                    out.print(data + " ");
+
                 }
-                line.close();                   // Не забывать, чтобы не было утечек
-                out.println();                  // Строка закончена -- перенос строки в вых. файл
-                System.out.println();           // и на экране
+                line.close();
+                out.println();
+                System.out.println();
             }
-        } catch (IOException x) { System.out.println("IO error: " + x); }
-        // И всё. Файлы закрыты
+
+        } catch (IOException x) { x.getStackTrace() ;}
+
     }
          public static void main (String[] args){
         try {
