@@ -1,4 +1,4 @@
-package hm10;
+package com.pb.artjukh.hm10;
 
 public class NumBox <T extends Number> {
     private final T[] arr;

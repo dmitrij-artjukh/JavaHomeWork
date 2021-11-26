@@ -1,4 +1,4 @@
-package hm10;
+package com.pb.artjukh.hm10;
 
 public class Main {
     public static void main(String[] args) throws Exception {
