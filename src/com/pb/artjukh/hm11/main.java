@@ -2,6 +2,7 @@ package com.pb.artjukh.hm11;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.databind.module.SimpleModule;
 
 import java.time.LocalDate;
@@ -11,6 +12,7 @@ import java.util.List;
 public class main {
     public static void main(String[] args) throws JsonProcessingException {
         ObjectMapper mapper = new ObjectMapper();
+        mapper.enable(SerializationFeature.INDENT_OUTPUT);
         //ObjectMapper mapper=new ObjectMapper();
         // для работы с полями типа LocalDate
         SimpleModule module = new SimpleModule();
