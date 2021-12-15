@@ -1,30 +1,78 @@
 package com.pb.artjukh.hm11;
-
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.databind.module.SimpleModule;
-
+import java.io.*;
+import java.nio.file.Paths;
 import java.time.LocalDate;
-import java.util.Arrays;
-import java.util.List;
+import java.time.LocalDateTime;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.Scanner;
+
+import static com.pb.artjukh.hm11.action.*;
 
 public class main {
-    public static void main(String[] args) throws JsonProcessingException {
-        ObjectMapper mapper = new ObjectMapper();
-        mapper.enable(SerializationFeature.INDENT_OUTPUT);
-        //ObjectMapper mapper=new ObjectMapper();
-        // для работы с полями типа LocalDate
-        SimpleModule module = new SimpleModule();
-        module.addSerializer(LocalDate.class, new LocalDateSerializer());
-        module.addDeserializer(LocalDate.class, new LocalDateDeserializer());
-        mapper.registerModule(module);
-//////////////
-        List<adonent> abonents = Arrays.asList(
-           new adonent("name1","01","adr1",LocalDate.of(2000,5,1),
-                   LocalDate.of(2021,6,2)));
+    public static void main(String[] args) throws Exception {
 
-        String personsJson = mapper.writeValueAsString(abonents);
-        System.out.println(personsJson);
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Выберите действие, указв номер пункта меню:"+"\n"+
+                "1. Добавить контакт"+"\n"+"2. Удалить конакт"+"\n"+"3. Поиск"+"\n"+
+                "4.Сортировка"+"\n"+"5.Редактировать контакт"+"\n"+"6. Записать в файл"+"\n"+"7. Считать с файла"+"\n"+"0.Выход");
+
+
+        while (sc.hasNext()) {
+            int select = 0;
+            if (sc.hasNextInt()) {
+                select = sc.nextInt();
+            }
+            switch (select) {
+
+                case 1:
+
+                   add();
+
+                    break;
+                case 2:
+
+                    dell();
+                    break;
+                case 3:
+                   find();
+                    break;
+                case 4:
+                    sort();
+
+                    break;
+                case 5:
+                    edit();
+                    break;
+                case 6:
+                    wtofile();
+                    break;
+                case 7:
+                    rffile();
+                    break;
+
+                case 0:
+                    System.out.println("Выходим...");
+                    System.exit(0);
+                    break;
+                default:
+                    System.out.println("Выберите пункт меню");
+
+
+            }
+
+            System.out.println("Выберите действие, указв номер пункта меню:"+"\n"+
+                    "1. Добавить контакт"+"\n"+"2. Удалить конакт"+"\n"+"3. Поиск"+"\n"+
+                    "4.Сортировка"+"\n"+"5.Редактировать контакт"+"\n"+"6. Записать в файл"+"\n"+"7. Считать с файла"+"\n"+"0.Выход");
+        }
+
+//        List persons2 = mapper.readValue(personsJson, List.class);
+//        System.out.println(persons2);
+
+
+        //objectOutputStream.close();
     }
 }

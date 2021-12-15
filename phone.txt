@@ -1,0 +1,1 @@
+[abonent{name='werty', phone='ewrtry', address='ewrte', dateOfBirth=2020-10-01, dateOfChange='2021-12-15T14:21:46.484'}, abonent{name='цукен', phone='цйуке', address='укен', dateOfBirth=2020-10-01, dateOfChange='2021-12-15T14:21:46.484'}]
