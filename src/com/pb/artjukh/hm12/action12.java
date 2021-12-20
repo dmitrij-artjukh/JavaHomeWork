@@ -11,7 +11,6 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
-import java.util.stream.Collectors;
 
 public class action12 {
 
@@ -19,19 +18,6 @@ public class action12 {
     private static List<abonent12> abonents2 = new ArrayList<>();
     private static ObjectMapper mapper = new ObjectMapper();
     private static abonent12 abonent1 = new abonent12();
-
-//    static class SortByName implements Comparator<abonent12> {
-//
-//        public int compare(abonent12 a, abonent12 b) {
-//            return  a.getName().compareTo(b.getName());
-//        }
-//    }
-//    static class SortByAdr implements Comparator<abonent12> {
-//
-//        public int compare(abonent12 a, abonent12 b) {
-//            return a.getAddress().compareTo(b.getAddress());
-//        }
-//    }
 
     public static void add12() throws IOException {
         mapper.enable(SerializationFeature.INDENT_OUTPUT);

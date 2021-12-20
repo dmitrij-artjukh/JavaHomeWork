@@ -1,8 +1,6 @@
 package com.pb.artjukh.hm12;
 
 import java.time.LocalDate;
-import java.util.Arrays;
-import java.util.Comparator;
 
 public class abonent12 {
 
