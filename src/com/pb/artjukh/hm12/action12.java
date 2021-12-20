@@ -94,11 +94,16 @@ public class action12 {
 
         switch (res) {
             case 1: {
-                abonents2.stream().sorted(Comparator.comparing(abonent12::getName)).forEach(System.out::println);
+
+                abonents2.stream().sorted
+                        (Comparator.comparing(abonent12::getName))
+                        .forEach(System.out::println);
                 break;
             }
             case 2: {
-                abonents2.stream().sorted(Comparator.comparing(abonent12::getAddress)).forEach(System.out::println);
+                abonents2.stream().
+                        sorted(Comparator.comparing(abonent12::getAddress))
+                        .forEach(System.out::println);
                 break;
             }
             default:
