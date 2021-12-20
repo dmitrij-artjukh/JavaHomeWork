@@ -25,10 +25,7 @@ public class action12 {
         module.addSerializer(LocalDate.class, new LocalDateSerializer());
         module.addDeserializer(LocalDate.class, new LocalDateDeserializer());
         mapper.registerModule(module);
-
         Scanner sc2 = new Scanner(System.in);
-
-
         System.out.println("Введите имя:");
         abonent1.setName(sc2.nextLine());
         System.out.println("Введите номер:");
