@@ -25,8 +25,6 @@ public class abonent12 {
     }
 
 
-
-
     public String getName() {
         return name;
     }

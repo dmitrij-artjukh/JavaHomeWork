@@ -13,7 +13,6 @@ public class main12 {
                 "1. Добавить контакт"+"\n"+"2. Удалить конакт"+"\n"+"3. Поиск"+"\n"+
                 "4.Сортировка"+"\n"+"5.Редактировать контакт"+"\n"+"6. Записать в файл"+"\n"+"7. Считать с файла"+"\n"+"0.Выход");
 
-
         while (sc.hasNext()) {
             int select = 0;
             if (sc.hasNextInt()) {
@@ -62,10 +61,5 @@ public class main12 {
                     "4.Сортировка"+"\n"+"5.Редактировать контакт"+"\n"+"6. Записать в файл"+"\n"+"7. Считать с файла"+"\n"+"0.Выход");
         }
 
-//        List persons2 = mapper.readValue(personsJson, List.class);
-//        System.out.println(persons2);
-
-
-        //objectOutputStream.close();
     }
 }

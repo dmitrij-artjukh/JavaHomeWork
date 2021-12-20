@@ -39,11 +39,8 @@ public class action12 {
         abonent1.setDateOfBirth(date);
         abonent1.setDateOfChange(ldt.toString());
         abonents2.add(new abonent12(abonent1.getName(), abonent1.getPhone(), abonent1.getAddress(), abonent1.getDateOfBirth(), abonent1.getDateOfChange()));
-
         String personsJson = mapper.writeValueAsString(abonents2);
         System.out.println(personsJson);
-
-
     }
 
     public static void dell12() {
@@ -98,9 +95,7 @@ public class action12 {
         switch (res) {
             case 1: {
                 abonents2.stream().sorted(Comparator.comparing(abonent12::getName)).forEach(System.out::println);
-
                 break;
-
             }
             case 2: {
                 abonents2.stream().sorted(Comparator.comparing(abonent12::getAddress)).forEach(System.out::println);
@@ -115,10 +110,8 @@ public class action12 {
 
     public static void edit12() {
         Scanner sc = new Scanner(System.in);
-
         System.out.println("Введите имя контакта:");
         String name2 = sc.next();
-
         for (abonent12 x : abonents2) {
             if (x.getName().equals(name2))
                 abonents2.remove(x);
