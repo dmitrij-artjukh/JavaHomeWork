@@ -1,7 +1,9 @@
 package com.pb.artjukh.hw13;
 
+
 import java.util.Random;
 import java.util.Stack;
+
 
 public class poizvod implements Runnable {
     int result;
@@ -12,12 +14,12 @@ public class poizvod implements Runnable {
         this.A = A;
     }
 
-    public synchronized void produce()
-    {
+    public synchronized void produce(){
+    synchronized (A) {
         while (A.size() >= 5) {
             System.out.println("List is Full");
             try {
-                wait();
+                A.wait();
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
@@ -26,11 +28,12 @@ public class poizvod implements Runnable {
 
         System.out.println(result + " produced ");
         A.push(result);
-        System.out.println(A);
+        System.out.println("stack ---"+A);
 
-        this.notify();
+        A.notifyAll();
+
     }
-
+         ;}
     @Override
     public void run() {
         System.out.println("Producer get started");
