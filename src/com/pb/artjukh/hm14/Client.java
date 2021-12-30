@@ -83,7 +83,7 @@ class Client1 {
                         Client1.this.downService();
                         break;
                     } else {
-                             out.write( ldt.toString()+userWord + "\n");
+                             out.write( ldt.toString()+":"+userWord + "\n");
                     }
                     out.flush();
                 } catch (IOException e) {
