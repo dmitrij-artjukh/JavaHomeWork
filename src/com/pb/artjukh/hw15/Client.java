@@ -13,11 +13,9 @@ class Client1  extends JFrame {
 
     static Socket socket;
     private BufferedReader in;
-   // private BufferedWriter out;
-     private PrintWriter out;
+    private PrintWriter out;
     private BufferedReader inputUser;
     static String addr;
-
     private static LocalDateTime ldt = LocalDateTime.now();
     public static String ipAddr = "127.0.0.1";
     public static int port = 1234;
@@ -41,7 +39,6 @@ class Client1  extends JFrame {
         msg = new JTextField(20);
         msg.setText("Hi");
         clip.setLayout(new FlowLayout(FlowLayout.CENTER));
-
         clientText = new JTextArea(20, 60);
         clientScroll = new JScrollPane(clientText);
         clip.add(label1);
@@ -50,24 +47,17 @@ class Client1  extends JFrame {
         clip.add(send);
         clip.add(closeButton);
         cont.add(clip);
-
         send.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-
         try
-
             {
-
                 out = new PrintWriter(new OutputStreamWriter(socket.getOutputStream()));
-
                 in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
                 new ReadMsg().start();
                 new WriteMsg().start();
             } catch(
             IOException e1)
-
             {
-
                 Client1.this.downService();
             }
             }
@@ -78,13 +68,10 @@ class Client1  extends JFrame {
 
      void downService() {
         try {
-
             if (!socket.isClosed()) {
-
                 socket.close();
                 in.close();
                 out.close();
-
             }
         } catch (IOException ignored) {}
     }
@@ -95,14 +82,8 @@ class Client1  extends JFrame {
         public void run() {
             String str="first";
             try {
-
                     str = in.readLine();
-                    if (str.equals("stop")) {
-                   Client1.this.downService();
-
-                    }
                 msg.setText("");
-
                 clientText.append("\nServer says:" + in.readLine());;
 
             } catch (IOException e) {
@@ -111,37 +92,19 @@ class Client1  extends JFrame {
         }
     }
 
-
     public class WriteMsg extends Thread {
 
         @Override
         public void run()  {
-
                 String userWord;
-
-
                 userWord = msg.getText();
-                if (userWord.equals("stop")) {
-                    out.write("stop" + "\n");
-                    Client1.this.downService();
-                    //break;
-                } else {
                     out.println(msg.getText());
                    out.write( ldt.toString()+userWord + "\n");
-                }
                 out.flush();
-
             }
-
     }
 
-
-
-
-
-
     public static void main(String[] args) throws IOException {
-
         Client1 clientFrame = new Client1(ipAddr, port);
         clientFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         clientFrame.setVisible(true);
