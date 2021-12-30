@@ -99,7 +99,7 @@ class Client1  extends JFrame {
                 String userWord;
                 userWord = msg.getText();
                     out.println(msg.getText());
-                   out.write( ldt.toString()+userWord + "\n");
+                   out.write( ldt.toString()+":"+userWord + "\n");
                 out.flush();
             }
     }
