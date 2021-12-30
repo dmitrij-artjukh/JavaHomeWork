@@ -2,6 +2,7 @@ package com.pb.artjukh.hm14;
 
 import java.io.*;
 import java.net.Socket;
+import java.time.LocalDateTime;
 
 
 class Client1 {
@@ -12,6 +13,7 @@ class Client1 {
     private BufferedReader inputUser;
     private String addr;
     private int port;
+    private static LocalDateTime ldt = LocalDateTime.now();
 
 
     public Client1(String addr, int port) {
@@ -81,7 +83,7 @@ class Client1 {
                         Client1.this.downService();
                         break;
                     } else {
-                             out.write( userWord + "\n");
+                             out.write( ldt.toString()+userWord + "\n");
                     }
                     out.flush();
                 } catch (IOException e) {

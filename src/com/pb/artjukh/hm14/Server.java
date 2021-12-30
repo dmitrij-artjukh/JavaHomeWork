@@ -1,12 +1,14 @@
 package com.pb.artjukh.hm14;
 import java.io.*;
 import java.net.*;
+import java.time.LocalDateTime;
 import java.util.LinkedList;
 
 class Server1 extends Thread {
     private Socket socket;
     private BufferedReader in;
     private BufferedWriter out;
+    private static LocalDateTime ldt = LocalDateTime.now();
 
     public Server1(Socket socket) throws IOException {
         this.socket = socket;
@@ -39,7 +41,7 @@ class Server1 extends Thread {
 
     private void send(String msg) {
         try {
-            out.write(msg + "\n");
+            out.write(ldt.toString()+msg + "\n");
             out.flush();
         } catch (IOException ignored) {}
 
